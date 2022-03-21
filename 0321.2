@@ -1,0 +1,112 @@
+#include <iostream>
+#include <string>
+#include "Staff.h"
+using namespace std;
+
+void Staff::setname(string newname){
+    if(newname.size() <= 25){
+        name = newname;
+    }else{
+        name = newname.substr(0, 25);
+    }
+}
+void Staff::setid(string newid){
+    if(newid.size() <= 10){
+        id = newid;
+    }else{
+        id = newid.substr(0, 10);
+    }
+}
+void Staff::setgender(string newgender){
+    gender = newgender;
+}
+void Staff::setEmail(string newEmail){
+    Email = newEmail;
+}
+void Staff::setphonenum(int newphonenum){
+    phonenum = newphonenum;
+}
+void Staff::setunit(string newunit){
+    unit = newunit;
+}
+void Staff::setservice(string newservice){
+    service = newservice;
+}
+void Staff::setagent(string newagent){
+    agent = newagent;
+}
+void Staff::setdate(string newdate){
+    date = newdate;
+}
+void Staff::setjob(string newjob){
+    job = newjob;
+}
+string Staff::showname(){
+    return name;
+}
+void Staff::showinfo(){
+    cout<<"Name: "<<name<<endl;
+    cout<<"ID: "<<id<<endl;
+    cout<<"Gender: "<<gender<<endl;
+    cout<<"Email: "<<Email<<endl;
+    cout<<"Phonenum: "<<phonenum<<endl;
+    cout<<"Unit: "<<unit<<endl;
+    cout<<"Service: "<<service<<endl;
+    cout<<"Agent: "<<agent<<endl;
+    cout<<"Date: "<<date<<endl;
+    cout<<"Job: "<<job<<endl;
+    cout<<"Seniorty: "<<seniority<<endl;
+}
+void Staff::cut(string newdate,int dateout, string date1, string date2, string date3, string dateoutput){   
+    cout << endl << newdate.size() << " " << newdate << newdate.substr(0, 4) << endl;
+    date1 = date.substr(0, 4);
+    date2 = date.substr(5, 2);
+    date3 = date.substr(8, 2);
+    date = dateoutput.append(date1).append(date2).append(date3);
+    dateout = stoi(date);
+}
+int Staff::seniortycul(int dateout, int today){
+    seniority =  (today - dateout)/10000;
+    return seniority;
+    dateout = 0;
+}
+bool Staff::operator>(const Staff &obj){
+    if(seniority > obj.seniority){
+        return true;
+    }else{
+        return false;
+    }
+}
+bool Staff::operator>=(const Staff &obj){
+    if(seniority >= obj.seniority){
+        return true;
+    }else{
+        return false;
+    }
+}
+bool Staff::operator<(const Staff &obj){
+    if(seniority < obj.seniority){
+        return true;
+    }else{
+        return false;
+    }
+}
+bool Staff::operator<=(const Staff &obj){
+    if(seniority <= obj.seniority){
+        return true;
+    }else{
+        return false;
+    }
+}
+bool Staff::operator==(const Staff &obj){
+    if(seniority == obj.seniority){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+string Staff::getData()
+{
+    return date;
+}
